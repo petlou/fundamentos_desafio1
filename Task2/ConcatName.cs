@@ -1,4 +1,4 @@
-﻿namespace fundamentos_desafio.Task1;
+﻿namespace fundamentos_desafio.Task2;
 public class ConcatName
 {
     public void Concat()

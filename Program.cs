@@ -1,5 +1,5 @@
-﻿using fundamentos_desafio.Task1;
-using fundamentos_desafio.Task2;
+﻿using fundamentos_desafio.Task2;
+using fundamentos_desafio.Task3;
 
 namespace fundamentos_desafio;
 

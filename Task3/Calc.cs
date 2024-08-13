@@ -1,6 +1,4 @@
-﻿using fundamentos_desafio.Task1;
-
-namespace fundamentos_desafio.Task2;
+﻿namespace fundamentos_desafio.Task3;
 public class Calc
 {
     public void InsertData()
