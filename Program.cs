@@ -1,4 +1,5 @@
 ﻿using fundamentos_desafio.Task1;
+using fundamentos_desafio.Task2;
 
 namespace fundamentos_desafio;
 
@@ -18,7 +19,7 @@ class Program
         Console.ReadLine();
         Console.Clear();
 
-        int numberSelected;
+        int selectedChoice;
 
         do
         {
@@ -27,12 +28,12 @@ class Program
             Console.WriteLine("Escolha abaixo o que deseja fazer:");
             Console.WriteLine();
             Console.WriteLine("1 - Concatenar nome e sobrenome");
+            Console.WriteLine("2 - Calcular números");
             Console.WriteLine("0 - Sair");
 
-            numberSelected = int.Parse(Console.ReadLine());
-            Console.WriteLine(numberSelected);
+            selectedChoice = int.Parse(Console.ReadLine());
 
-            switch (numberSelected)
+            switch (selectedChoice)
             {
                 case 0:
                     break;
@@ -40,15 +41,19 @@ class Program
                     var concat = new ConcatName();
                     concat.Concat();
                     break;
+                case 2:
+                    var calc = new Calc();
+                    calc.InsertData();                    
+                    break;
                 default:
                     Console.Clear();
-                    Console.WriteLine($"A opção escolhida não é válida: {numberSelected}");
+                    Console.WriteLine($"A opção escolhida não é válida: {selectedChoice}");
                     Console.WriteLine("Para continuar, pressione ENTER");
                     Console.ReadLine();
                     break;
             }
         }
-        while (numberSelected > 0);
+        while (selectedChoice > 0);
 
         Console.Clear();
         Console.WriteLine("O Programa foi encerrado!");
