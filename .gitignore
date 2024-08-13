@@ -1,0 +1,47 @@
+# Padrões do Visual Studio
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Logs, arquivos de debug e temporários
+*.log
+*.tlog
+*.obj
+*.cache
+*.pdb
+*.ilk
+*.idb
+
+# Configurações de build
+bin/
+obj/
+Debug/
+Release/
+
+# Configurações do ReSharper
+_ReSharper*/
+*.DotSettings.user
+
+# Arquivos de lock do NuGet
+project.lock.json
+project.fragment.lock.json
+
+# Arquivos de pacotes NuGet e dependências
+*.nupkg
+packages/
+*.snupkg
+
+# Arquivos de publicação e WebDeploy
+.publish/
+*.publishsettings
+.vscode/
+
+# Arquivos de ambiente de desenvolvimento
+*.DS_Store
+Thumbs.db
+
+# Arquivos de dependências específicas de IDE ou ambiente de desenvolvimento
+.idea/
