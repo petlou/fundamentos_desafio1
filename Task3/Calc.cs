@@ -1,19 +1,45 @@
-﻿namespace fundamentos_desafio.Task3;
+﻿using fundamentos_desafio.Utils;
+
+namespace fundamentos_desafio.Task3;
 public class Calc
 {
     public void InsertData()
     {
         Console.Clear();
 
+        var continueMessage = new ContinueMessage();
+        double firstNumber = 0;
+        double secondNumber = 0;
+
+        int selectedChoice;
+
         Console.WriteLine("Por favor, insira o primeiro número:");
-        double firstNumber= double.Parse(Console.ReadLine());
+        var inputValueOne = Console.ReadLine();
+
+        if (!string.IsNullOrWhiteSpace(inputValueOne))
+        {
+            _ = double.TryParse(inputValueOne, out firstNumber);
+        }
+
         Console.Clear();
 
         Console.WriteLine("Por favor, insira o segundo número:");
-        double secondNumber = double.Parse(Console.ReadLine());
+        var inputValueTwo = Console.ReadLine();
+
+        if (!string.IsNullOrWhiteSpace(inputValueTwo))
+        {
+            _ = double.TryParse(inputValueTwo, out secondNumber);
+        }
+
         Console.Clear();
 
-        int selectedChoice;
+        if (firstNumber == 0 || !double.TryParse(inputValueOne, out _) || !double.TryParse(inputValueTwo, out _))
+        {
+            Console.WriteLine("Valor inserido inválido");
+            continueMessage.Execute();
+
+            return;
+        }
 
         do
         {
@@ -26,7 +52,9 @@ public class Calc
             Console.WriteLine("5 - Média");
             Console.WriteLine("0 - Sair");
 
-            selectedChoice = int.Parse(Console.ReadLine());
+            var inputValueChoice = Console.ReadLine();
+            _ = int.TryParse(inputValueChoice, out selectedChoice);
+            
             Console.Clear();
 
             switch (selectedChoice)
@@ -35,41 +63,41 @@ public class Calc
                     break;
                 case 1:
                     Console.WriteLine($"A soma entre {firstNumber} e {secondNumber} é: {Sum(firstNumber, secondNumber)}");
-                    Console.WriteLine("Presione ENTER para continuar");
-                    Console.ReadLine();
+
+                    continueMessage.Execute();
                     break;
                 case 2:
                     Console.WriteLine($"A subtração entre {firstNumber} e {secondNumber} é: {Subtraction(firstNumber, secondNumber)}");
-                    Console.WriteLine("Presione ENTER para continuar");
-                    Console.ReadLine();
+
+                    continueMessage.Execute();
                     break;
                 case 3:
                     Console.WriteLine($"A multiplicação entre {firstNumber} e {secondNumber} é: {Multiplication(firstNumber, secondNumber)}");
-                    Console.WriteLine("Presione ENTER para continuar");
-                    Console.ReadLine();
+
+                    continueMessage.Execute();
                     break;
                 case 4:
                     if (secondNumber == 0)
                     {
                         Console.WriteLine("Divisão por 0 não é permitido.");
-                        Console.WriteLine("Presione ENTER para continuar");
-                        Console.ReadLine();
+
+                        continueMessage.Execute();
                         break;
                     }
                     Console.WriteLine($"A divisão entre {firstNumber} e {secondNumber} é: {Division(firstNumber, secondNumber)}");
-                    Console.WriteLine("Presione ENTER para continuar");
-                    Console.ReadLine();
+
+                    continueMessage.Execute();
                     break;
                 case 5:
                     Console.WriteLine($"A média entre {firstNumber} e {secondNumber} é: {Average(firstNumber, secondNumber)}");
-                    Console.WriteLine("Presione ENTER para continuar");
-                    Console.ReadLine();
+
+                    continueMessage.Execute();
                     break;
                 default:
                     Console.Clear();
                     Console.WriteLine($"A opção escolhida não é válida: {selectedChoice}");
-                    Console.WriteLine("Para continuar, pressione ENTER");
-                    Console.ReadLine();
+
+                    continueMessage.Execute();
                     break;
             }
         } while (selectedChoice > 0);
@@ -77,27 +105,27 @@ public class Calc
         Console.Clear();
     }
 
-    private double Sum(double firstNumber, double secondNumber)
+    private static double Sum(double firstNumber, double secondNumber)
     {
         return firstNumber + secondNumber;
     }
 
-    private double Subtraction(double firstNumber, double secondNumber)
+    private static double Subtraction(double firstNumber, double secondNumber)
     {
         return firstNumber - secondNumber;
     }
 
-    private double Multiplication(double firstNumber, double secondNumber)
+    private static double Multiplication(double firstNumber, double secondNumber)
     {
         return firstNumber * secondNumber;
     }
 
-    private double Division(double firstNumber, double secondNumber)
+    private static double Division(double firstNumber, double secondNumber)
     {
         return firstNumber / secondNumber;
     }
 
-    private double Average(double firstNumber, double secondNumber)
+    private static double Average(double firstNumber, double secondNumber)
     {
         return (firstNumber + secondNumber) / 2;
     }

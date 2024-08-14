@@ -1,5 +1,6 @@
 ﻿using fundamentos_desafio.Task2;
 using fundamentos_desafio.Task3;
+using fundamentos_desafio.Utils;
 
 namespace fundamentos_desafio;
 
@@ -7,17 +8,23 @@ class Program
 {
     static void Main()
     {
+        var continueMessage = new ContinueMessage();
+
         Console.WriteLine("Olá! Por favor, digite seu nome:");
         string? name = Console.ReadLine();
         Console.Clear();
 
-        Console.WriteLine($"Olá, {name}! Seja muito bem - vindo!");
+        var message = string.IsNullOrWhiteSpace(name)
+            ? "Olá! Seja muito bem-vindo!"
+            : $"Olá, {name}! Seja muito bem-vindo!";
+
+        Console.WriteLine(message);
+
         Console.WriteLine();
         Console.WriteLine("----------------------");
         Console.WriteLine();
-        Console.WriteLine("Para continuar, pressione ENTER");
-        Console.ReadLine();
-        Console.Clear();
+
+        continueMessage.Execute();
 
         int selectedChoice;
 
@@ -31,7 +38,8 @@ class Program
             Console.WriteLine("2 - Calcular números");
             Console.WriteLine("0 - Sair");
 
-            selectedChoice = int.Parse(Console.ReadLine());
+            var inputSelectChoice = Console.ReadLine();
+            _ = int.TryParse(inputSelectChoice, out selectedChoice);
 
             switch (selectedChoice)
             {
@@ -48,8 +56,8 @@ class Program
                 default:
                     Console.Clear();
                     Console.WriteLine($"A opção escolhida não é válida: {selectedChoice}");
-                    Console.WriteLine("Para continuar, pressione ENTER");
-                    Console.ReadLine();
+                    
+                    continueMessage.Execute();
                     break;
             }
         }
