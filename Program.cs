@@ -1,6 +1,7 @@
 ﻿using fundamentos_desafio.Task2;
 using fundamentos_desafio.Task3;
 using fundamentos_desafio.Task4;
+using fundamentos_desafio.Task5;
 using fundamentos_desafio.Utils;
 
 namespace fundamentos_desafio;
@@ -38,6 +39,7 @@ class Program
             Console.WriteLine("1 - Concatenar nome e sobrenome");
             Console.WriteLine("2 - Calcular dois números");
             Console.WriteLine("3 - Calcular caracteres de uma frase ou palavra");
+            Console.WriteLine("4 - Validar placa");
             Console.WriteLine("0 - Sair");
 
             var inputSelectChoice = Console.ReadLine();
@@ -58,6 +60,10 @@ class Program
                 case 3:
                     var calcLength = new CalcLength();
                     calcLength.Execute();
+                    break;
+                case 4:
+                    var validPlate = new ValidPlate();
+                    validPlate.Execute();
                     break;
                 default:
                     Console.Clear();
