@@ -2,6 +2,7 @@
 using fundamentos_desafio.Task3;
 using fundamentos_desafio.Task4;
 using fundamentos_desafio.Task5;
+using fundamentos_desafio.Task6;
 using fundamentos_desafio.Utils;
 
 namespace fundamentos_desafio;
@@ -40,6 +41,7 @@ class Program
             Console.WriteLine("2 - Calcular dois números");
             Console.WriteLine("3 - Calcular caracteres de uma frase ou palavra");
             Console.WriteLine("4 - Validar placa");
+            Console.WriteLine("5 - Data atual formatada");
             Console.WriteLine("0 - Sair");
 
             var inputSelectChoice = Console.ReadLine();
@@ -64,6 +66,10 @@ class Program
                 case 4:
                     var validPlate = new ValidPlate();
                     validPlate.Execute();
+                    break;
+                case 5:
+                    var formatedDate = new DateFormated();
+                    formatedDate.Execute();
                     break;
                 default:
                     Console.Clear();
